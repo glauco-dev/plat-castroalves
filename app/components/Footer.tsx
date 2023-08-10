@@ -16,7 +16,6 @@ const Footer_: React.FC = () => {
       maxWidth: 'fit-content',
       margin: '0 auto',
       display:'flex',
-      flexDirection: 'column',
       gap: '1rem'
     },
     footerLogo: {
@@ -40,7 +39,7 @@ const Footer_: React.FC = () => {
   };
   return (
       <Footer style={styles.footer}>
-      <div style={styles.footerContent}>
+      <div style={{...styles.footerContent}}>
         <div style={styles.footerLinks}>
           <a href="/" target='_blank' style={styles.footerLink}>
             Início
