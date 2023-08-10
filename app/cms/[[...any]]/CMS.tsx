@@ -8,7 +8,7 @@ import {
   EntityCollection,
   FirebaseCMSApp,
   buildCollection
-} from "firecms";
+} from "../../../node_modules/firecms/dist";
 
 import CustomCalendar from './custom_Calendar'
 import "typeface-rubik";
