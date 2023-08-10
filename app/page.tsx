@@ -7,6 +7,7 @@ import styles from './Home.module.css';
 import PostagemCard from './components/PostagemCard';
 import Hero from './components/Hero';
 import Footer from './components/Footer';
+import InstitucionalPage from './institucional/page';
 
 const { Header, Content } = Layout;
 
@@ -54,17 +55,9 @@ const HomePage = () => {
 
         <Divider className={styles.divider} />
 
-        <article className={styles.blogPosts}>
-          <h2 className={styles.blogTitle}>Últimas Postagens</h2>
-          {blogPosts.map(post => {
-            const  { cover, title, date, text, likes, link } = post;
-            return (
-              <PostagemCard { ...{cover, title, date, text, likes, link} } ></PostagemCard>
-            )})}
-        </article>
       </Content>
+        <InstitucionalPage/>
       
-      <Footer></Footer>
       
     </Layout>
   );

@@ -21,9 +21,6 @@ export default () => {
       <Menu.Item key="home" icon={<HomeOutlined />}>
         <Link href="/">Início</Link>
       </Menu.Item>
-      <Menu.Item key="sobre" icon={<InfoCircleOutlined />}>
-        <Link href="/institucional">Sobre</Link>
-      </Menu.Item>
       <Menu.Item key="galerias" icon={<PictureOutlined />}>
         <Link href="/galerias">Galerias</Link>
       </Menu.Item>
