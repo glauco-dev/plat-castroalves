@@ -39,8 +39,8 @@ const Footer_: React.FC = () => {
   };
   return (
       <Footer style={styles.footer}>
-      <div style={{...styles.footerContent}}>
-        <div style={styles.footerLinks}>
+      <div  className='footer_final'style={{...styles.footerContent}}>
+        <div  style={styles.footerLinks}>
           <a href="/" target='_blank' style={styles.footerLink}>
             Início
           </a>
@@ -54,7 +54,7 @@ const Footer_: React.FC = () => {
             Portal
           </a>
         </div>
-        <span style={{fontSize:'80%', marginTop:'1rem', textAlign:"center", color:"#2d2d2d"}}>
+        <span  style={{fontSize:'80%', marginTop:'1rem', textAlign:"center", color:"#2d2d2d"}}>
           Educandário Castro Alves, todos os direitos reservados @2023
           <div>
           &copy; Ícaro Glauco de Oliveira
