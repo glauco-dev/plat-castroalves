@@ -6,7 +6,7 @@ import { T_Calendario_Evento } from '../cms/[[...any]]/models';
 const { Content } = Layout;
 
 const SchoolCalendarPage = () => {
-  const [selectedsDate, setSelectedDate] = useState([] as T_Calendario_Evento[]);
+  const [selectedsDate, setSelectedDate] = useState({} as {[key:string]:T_Calendario_Evento[]});
 
   const onSelectDate = (date:any) => {
     console.log(date, "!!!!");
@@ -22,12 +22,11 @@ const SchoolCalendarPage = () => {
             <CalendarYear yearChangeMode="false" onSelectDate={onSelectDate} editable={true}/>
           </Col>
           <Col xs={24} sm={12}>
-            {selectedsDate && Object.keys(selectedsDate).map((key:string) =>
+            {selectedsDate && Object.keys(selectedsDate).map((key:any) =>
               (
-                selectedsDate[key].map( (ev:T_Calendario_Evento, i:string) => (
+                selectedsDate[key].map( (ev:T_Calendario_Evento, i:number) => (
                   <Card key={key+i}>
                     <h2 style={{color:ev.color}}><small>{key}</small>  {ev.title} </h2>
-                    {/* Adicione mais detalhes ou informações relevantes aqui */}
                   </Card>
                 ) )
               )

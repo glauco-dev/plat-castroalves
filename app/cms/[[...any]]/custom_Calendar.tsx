@@ -18,10 +18,10 @@ export default function CustomColorTextField({
         context, // the rest of the entity values here
         ...props
     }: FieldProps<string, CustomColorTextFieldProps>) {
-
+        console.log(value);
     return (
         <>
-            <CalendarYear initialValues={value} onSelectDate={(evt: any) => {
+            <CalendarYear initialValues={{}} onSelectDate={(evt: any) => {
                 console.log(evt)
                         //    setValue(
                         //        evt.target.value
