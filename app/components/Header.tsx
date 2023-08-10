@@ -4,9 +4,6 @@ import { Header } from "antd/es/layout/layout"
 import Link from "next/link"
 
 export default () => {
-    const menuColorScheme = {
-        backgroundColor:"rgb(44, 71, 190)"
-    }
     const HeaderStyle = {
         position: "sticky",
         top: 0,
@@ -16,11 +13,11 @@ export default () => {
 
     return(
         //@ts-ignore
-        <Header style={{...menuColorScheme, ...HeaderStyle}}>
+        <Header style={{...HeaderStyle}}>
     <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500&display=swap" rel="stylesheet"/>
     <link href="https://fonts.googleapis.com/css2?family=Martel+Sans:wght@300;400&display=swap" rel="stylesheet"/>
 
-    <Menu style={menuColorScheme} theme="dark" mode="horizontal">
+    <Menu theme="dark" mode="horizontal">
       <Menu.Item key="home" icon={<HomeOutlined />}>
         <Link href="/">Início</Link>
       </Menu.Item>

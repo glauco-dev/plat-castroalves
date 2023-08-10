@@ -9,6 +9,7 @@ import styles from './FormularioMatricula.module.css'; // Importar os estilos mo
 
 import firebase_app from '../firebase_config'
 import MotivationalText from '../components/MotivationalText';
+import Footer from '../components/Footer';
 
 const db = getFirestore(firebase_app);
 
@@ -165,7 +166,9 @@ const App: React.FC = () => {
           </Button>
         </Form.Item>
       </Form>
-    </div></>
+    </div>
+          <Footer></Footer>
+    </>
   );
 }
 

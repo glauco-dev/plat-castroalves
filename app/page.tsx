@@ -6,8 +6,9 @@ import Link from 'next/link';
 import styles from './Home.module.css';
 import PostagemCard from './components/PostagemCard';
 import Hero from './components/Hero';
+import Footer from './components/Footer';
 
-const { Header, Content, Footer } = Layout;
+const { Header, Content } = Layout;
 
 const HomePage = () => {
   const blogPosts = [
@@ -63,9 +64,8 @@ const HomePage = () => {
         </article>
       </Content>
       
-      <Footer className={styles.footer}>
-        &copy; Ícaro Glauco de Oliveira
-      </Footer>
+      <Footer></Footer>
+      
     </Layout>
   );
 };
