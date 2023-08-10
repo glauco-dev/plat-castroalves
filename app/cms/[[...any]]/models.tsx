@@ -66,12 +66,24 @@ export interface Model_Publicacao {
 }
 // - extensões
 // Galeria
+export enum Enum_ContentTags{
+    URGENTE = "URGENTE",
+    COMUNICADO = "COMUNICADO",
+    AULA = "AULA",
+    ATIVIDADE = "ATIVIDADE",
+    ADVERTENCIA = "ADVERTENCIA",
+    ENQUETE = "ENQUETE",
+    PROVAS = "PROVAS",
+    POSTAGEM = "POSTAGEM",
+}
 export interface Model_Galeria {
     id: string,
     data: {
         titulo: string,
         desc: string,
+        tags: [Enum_ContentTags],
         capa: string,
+        link: string,
         imagens: string[]
     }
 }

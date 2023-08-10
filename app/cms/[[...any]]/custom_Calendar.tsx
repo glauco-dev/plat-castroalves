@@ -1,6 +1,7 @@
 import React from "react";
-import { FieldDescription, FieldProps } from "firecms";
+import { CMSType, FieldDescription, FieldProps } from "firecms";
 import CalendarYear  from '@/app/components/Calendar'
+import { T_Calendario_Evento } from "./models";
 
 interface CustomColorTextFieldProps {
     color: string
@@ -17,15 +18,13 @@ export default function CustomColorTextField({
         isSubmitting,
         context, // the rest of the entity values here
         ...props
-    }: FieldProps<string, CustomColorTextFieldProps>) {
-        console.log(value);
+    }: FieldProps<CMSType[], any, any>) {
     return (
         <>
-            <CalendarYear initialValues={{}} onSelectDate={(evt: any) => {
-                console.log(evt)
-                        //    setValue(
-                        //        evt.target.value
-                        //    );
+            <CalendarYear initialValues={value as {[key:string]:T_Calendario_Evento[]}[]} onSelectDate={(evt: any) => {
+                           setValue(
+                               evt.target.value
+                           );
                 }} editable={true}/>
 
             <FieldDescription property={property}/>

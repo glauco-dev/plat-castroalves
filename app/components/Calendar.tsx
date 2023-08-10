@@ -8,7 +8,8 @@ import { CalendarMode, SelectInfo } from 'antd/es/calendar/generateCalendar';
 import { T_Calendario_Evento } from '../cms/[[...any]]/models';
 
 const { Option } = Select;
-const CalendarioEventos = ({initialValues={} as {[key:string]:T_Calendario_Evento[]},
+// initialValues={} as {[key:string]:T_Calendario_Evento[]
+const CalendarioEventos = ({initialValues=[{}] as {[key:string]:T_Calendario_Evento[]}[],
     editable=false, 
     onSelectDate= (ev: any)=>{console.log(ev, " events changed")}}) => {
   const [form] = Form.useForm();
@@ -24,10 +25,13 @@ const CalendarioEventos = ({initialValues={} as {[key:string]:T_Calendario_Event
     const eventList = events[dateKey] || [];
     return (
       <ul className="events">
-        {eventList.map((event: { title: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | React.ReactPortal | React.PromiseLikeOfReactNode | null | undefined; }, index: React.Key | null | undefined) => (
-          <li key={index}>
-            <Badge status="success" text={event.title} />
-          </li>
+        {Object.keys(eventList).map((eventDate: string, index: React.Key | null | undefined) => (
+          eventList[eventDate].map( (eventDetail:T_Calendario_Evento) => (
+            <li key={eventDetail.id}>
+              <Badge status="success" text={eventDetail.title} />
+            </li>
+
+          ))
         ))}
       </ul>
     );

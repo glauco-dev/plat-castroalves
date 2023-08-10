@@ -1,28 +1,73 @@
 "use client"
 import React from 'react';
-import { Layout, Row, Col, Card } from 'antd';
+import { Layout, Row, Col, Card, Badge } from 'antd';
+import { Enum_ContentTags, Model_Galeria } from '../cms/[[...any]]/models';
 
 const { Content } = Layout;
 
 const SchoolPage = () => {
-  const cardsData = [
+  const cardsData:Model_Galeria[] = [
     {
-      title: 'Matrícula',
-      content: 'Solicite sua matrícula para o próximo ano letivo.',
-      link: '/servicos/matricula',
-      image: '/matricula.jpg', // Coloque o caminho para a imagem
+      id: "1",
+      data: {
+        titulo: 'Saída à Matinha',
+        desc: 'Passeio realizado em xx-xx-xxxx',
+        link: '/galerias?id=1',
+        capa: '/',
+        imagens: [],
+        tags:[ Enum_ContentTags.POSTAGEM ]// Coloque o caminho para a imagem
+      }
     },
     {
-      title: 'Solicitações',
-      content: 'Faça solicitações para diversos serviços administrativos.',
-      link: '/servicos/solicitacoes',
-      image: '/solicitacoes.jpg', // Coloque o caminho para a imagem
-    },
-    {
-      title: 'Calendário Escolar',
-      content: 'Confira o calendário de atividades escolares.',
-      link: '/servicos/calendario',
-      image: '/calendario.jpg', // Coloque o caminho para a imagem
+      id: "2",
+      data: {
+        titulo: 'Saída à Matinha',
+        desc: 'Passeio realizado em xx-xx-xxxx',
+        link: '/galerias?id=1',
+        capa: '/',
+        imagens: [],
+        tags:[ Enum_ContentTags.POSTAGEM ]// Coloque o caminho para a imagem
+      }
+    },{
+      id: "3",
+      data: {
+        titulo: 'Saída à Matinha',
+        desc: 'Passeio realizado em xx-xx-xxxx',
+        link: '/galerias?id=1',
+        capa: '/',
+        imagens: [],
+        tags:[ Enum_ContentTags.POSTAGEM ]// Coloque o caminho para a imagem
+      }
+    },{
+      id: "4",
+      data: {
+        titulo: 'Saída à Matinha',
+        desc: 'Passeio realizado em xx-xx-xxxx',
+        link: '/galerias?id=1',
+        capa: '/',
+        imagens: [],
+        tags:[ Enum_ContentTags.POSTAGEM ]// Coloque o caminho para a imagem
+      }
+    },{
+      id: "5",
+      data: {
+        titulo: 'Saída à Matinha',
+        desc: 'Passeio realizado em xx-xx-xxxx',
+        link: '/galerias?id=1',
+        capa: '/',
+        imagens: [],
+        tags:[ Enum_ContentTags.POSTAGEM ]// Coloque o caminho para a imagem
+      }
+    },{
+      id: "6",
+      data: {
+        titulo: 'Saída à Matinha',
+        desc: 'Passeio realizado em xx-xx-xxxx',
+        link: '/galerias?id=1',
+        capa: '/',
+        imagens: [],
+        tags:[ Enum_ContentTags.POSTAGEM ]// Coloque o caminho para a imagem
+      }
     },
     // Adicione mais cards conforme necessário
   ];
@@ -34,12 +79,15 @@ const SchoolPage = () => {
           {cardsData.map((card, index) => (
             <Col key={index} xs={24} sm={12} md={8} lg={6}>
               <Card
-                cover={<img alt={card.title} src={card.image} />}
+                cover={<img alt={card.data.titulo} src={card.data.capa} />}
                 hoverable
-                onClick={() => window.location.href = card.link}
+                onClick={() => window.location.href = card.data.link}
               >
-                <h3>{card.title}</h3>
-                <p>{card.content}</p>
+                <h3>{card.data.titulo}</h3>
+                <p>
+                  {card.data.tags.map(tag => <Badge text={tag}></Badge>)}
+                  {card.data.desc}
+                </p>
               </Card>
             </Col>
           ))}
