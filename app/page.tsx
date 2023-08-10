@@ -39,12 +39,6 @@ const HomePage = () => {
             <Link href="/matricula">Saiba mais</Link>
           </Card>
           <Card className={styles.serviceCard}>
-          <h3>Solicitações</h3>
-            <Divider />
-            <p>Faça solicitações para diversos serviços administrativos.</p>
-            <Link href="/servicos/solicitacoes">Saiba mais</Link>
-          </Card>
-          <Card className={styles.serviceCard}>
           <h3>Calendário Escolar</h3>
             <Divider />
             <p>Confira o calendário de atividades escolares.</p>

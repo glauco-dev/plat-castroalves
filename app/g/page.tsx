@@ -6,6 +6,7 @@ import { useSearchParams } from 'next/navigation';
 import { Model_Galeria } from '../cms/[[...any]]/models';
 import { collection, doc as d, getDoc } from 'firebase/firestore';
 import Breadnav from '../components/breadnav';
+import Footer_ from '../components/Footer';
 
 const { Text, Title } = Typography;
 
@@ -48,29 +49,22 @@ export default function GalleryPage() {
 
   if(!gallery.data) return <></>
   return (
-    <div style={{ padding: '2rem' }}>
-        <Breadnav></Breadnav>
-        <h2 style={{
-            color: "rgb(11, 50, 155)",
-            marginBottom: "2rem",
-            fontSize: "47pt",
-            fontWeight: "normal",
-            fontFamily: "Segoe UI",
-        }}>
-            {gallery.data.titulo}
-        </h2>
-        <p>
-            {gallery.data.desc}
-        </p>
-      <Row gutter={16}>
+    <><div id="galeria-single" style={{ padding: '2rem' }}>
+      <Breadnav></Breadnav>
+      <h2>
+        {gallery.data.titulo}
+      </h2>
+      <p className='galeria-body'>
+        {gallery.data.desc}
+      </p>
+      <Row gutter={16} style={{ marginInline: "auto", justifyContent: "center" }}>
         {gallery.data.imagens.map((imagem, index) => (
           <Col key={index} span={8}>
             <img
               src={imagem}
               alt={`Imagem ${index}`}
-              style={{ width: '100%', marginBottom: '1rem', cursor:"pointer" }}
-              onClick={() => openImageModal(imagem)}
-            />
+              style={{ width: '100%', marginBottom: '1rem', cursor: "pointer" }}
+              onClick={() => openImageModal(imagem)} />
           </Col>
         ))}
       </Row>
@@ -84,9 +78,8 @@ export default function GalleryPage() {
         <img
           src={selectedImage}
           alt="Imagem Ampliada"
-          style={{ width: '100%', height: 'auto' }}
-        />
+          style={{ width: '100%', height: 'auto' }} />
       </Modal>
-    </div>
+    </div><Footer_></Footer_></>
   );
 }

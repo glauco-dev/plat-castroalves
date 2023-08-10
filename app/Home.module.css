@@ -55,6 +55,13 @@
 .serviceCard {
   width: 400px;
   margin: 0 1rem;
+ 
+}
+.serviceCard h3{
+  font-size: 18pt;
+}
+.serviceCard a{
+  color:#5485a6
 }
 
 .divider {
