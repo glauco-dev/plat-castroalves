@@ -112,6 +112,7 @@ const collections = [
               fileName: (context) => {
                   return context.file.name;
               },
+              storeUrl: true
           }, },
           imagens: { dataType: "array", name: "Imagens", of: { dataType: "string", storage: {
             storagePath: "images",

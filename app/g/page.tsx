@@ -1,9 +1,11 @@
+"use client";
 import { useEffect, useState } from 'react';
 import { db } from '../firebase_config'; // Importe a instância do Firebase configurada
-import {  Typography, Row, Col } from 'antd';
+import {  Typography, Row, Col, Modal } from 'antd';
 import { useSearchParams } from 'next/navigation';
 import { Model_Galeria } from '../cms/[[...any]]/models';
 import { collection, doc as d, getDoc } from 'firebase/firestore';
+import Breadnav from '../components/breadnav';
 
 const { Text, Title } = Typography;
 
@@ -16,10 +18,10 @@ export default function GalleryPage() {
     if (id) {
       const fetchGallery = async () => {
         try {
-          const docRef = collection(db, `galerias/${id}`);
-          const doc = await getDoc(await d(docRef));
+          const docRef = collection(db, `galerias`);
+          const doc = await getDoc(await d(docRef, id));
           if (doc.id) {
-            setGallery({id: doc.id, data: doc.data() as Model_Galeria['data']});
+            setGallery({id: doc.id, data: (doc.data() as Model_Galeria).data});
           } else {
             console.log('Documento não encontrado');
           }
@@ -29,27 +31,62 @@ export default function GalleryPage() {
       };
       fetchGallery();
     }
-  }, [searchParams]);
+  }, []);
 
+  const [modalVisible, setModalVisible] = useState(false);
+  const [selectedImage, setSelectedImage] = useState('');
+
+  const openImageModal = (imageURL:string) => {
+    setSelectedImage(imageURL);
+    setModalVisible(true);
+  };
+
+  const closeImageModal = () => {
+    setSelectedImage('');
+    setModalVisible(false);
+  };
+
+  if(!gallery.data) return <></>
   return (
     <div style={{ padding: '2rem' }}>
-        <h2>
-            {gallery?.data.titulo}
+        <Breadnav></Breadnav>
+        <h2 style={{
+            color: "rgb(11, 50, 155)",
+            marginBottom: "2rem",
+            fontSize: "47pt",
+            fontWeight: "normal",
+            fontFamily: "Segoe UI",
+        }}>
+            {gallery.data.titulo}
         </h2>
         <p>
-            {gallery?.data.desc}
+            {gallery.data.desc}
         </p>
       <Row gutter={16}>
-        {gallery?.data.imagens.map((imagem, index) => (
+        {gallery.data.imagens.map((imagem, index) => (
           <Col key={index} span={8}>
             <img
               src={imagem}
               alt={`Imagem ${index}`}
-              style={{ width: '100%', marginBottom: '1rem' }}
+              style={{ width: '100%', marginBottom: '1rem', cursor:"pointer" }}
+              onClick={() => openImageModal(imagem)}
             />
           </Col>
         ))}
       </Row>
+
+      <Modal
+        open={modalVisible}
+        onCancel={closeImageModal}
+        footer={null}
+        centered
+      >
+        <img
+          src={selectedImage}
+          alt="Imagem Ampliada"
+          style={{ width: '100%', height: 'auto' }}
+        />
+      </Modal>
     </div>
   );
 }
