@@ -1,0 +1,83 @@
+/* Importar as fontes de texto */
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Iskra&display=swap');
+
+.content {
+  padding: 2rem;
+}
+
+.hero {
+  position: relative;
+  height: 80vh;
+}
+
+.heroImage {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.heroText {
+  position: absolute;
+  top: 1%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: #5485a6;
+}
+
+.services {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.serviceCard {
+  width: 400px;
+  margin: 0 1rem;
+}
+
+.divider {
+  margin: 2rem 0;
+}
+
+.about {
+  margin-top: 2rem;
+  padding: 0 2rem;
+}
+
+.blogPosts {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 80vw;
+  width: 1200px;
+  margin-inline: auto;
+}
+
+.blogTitle {
+  font-size: 24px;
+  margin-bottom: 1rem;
+  font-family: 'Iskra', sans-serif; /* Aplicar a fonte Iskra */
+}
+
+.blogCard {
+  width: 800px;
+  margin: 1rem 0;
+}
+
+/* Aplicar as cores nas seções */
+.heroText {
+  color: #1966ce; /* Cor do texto do hero */
+}
+
+.serviceCard {
+  background-color: #fedf01; /* Cor de fundo dos cards de serviço */
+}
+
+.divider {
+  background-color: #323c6f; /* Cor de fundo da divisória */
+}
+
+.blogTitle {
+  color: #323c6f; /* Cor do título das postagens */
+}

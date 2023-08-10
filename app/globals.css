@@ -1,0 +1,141 @@
+/* Estilo geral */
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+  }
+  
+  body {
+    font-family: 'Martel Sans', sans-serif;
+  }
+  
+  /* Para títulos e cabeçalhos */
+  h1, h2, h3 {
+    font-family: 'Archivo', sans-serif;
+  }
+
+  /* Estilos para o corpo do site */
+body {
+  font-family: 'Auto', sans-serif; /* Usando a fonte Auto para o corpo */
+  font-size: 18px; /* Tamanho da fonte */
+  line-height: 1.6; /* Espaçamento entre linhas */
+  color: #323c6f; /* Cor do texto principal */
+}
+
+/* Estilos para títulos e subtítulos */
+h1, h2, h3 {
+  font-family: 'Mastro', sans-serif; /* Usando a fonte Mastro para títulos */
+  color: #1966ce; /* Cor dos títulos */
+}
+
+/* Estilos para links */
+a {
+  color: #1966ce; /* Cor dos links */
+  text-decoration: underline;
+}
+
+/* Estilos para parágrafos e margens */
+p {
+  margin-bottom: 1rem;
+}
+
+/* Estilos para o texto destacado */
+em {
+  font-style: italic;
+}
+
+/* Estilos para listas */
+ul, ol {
+  margin-left: 1.5rem; /* Espaçamento para listas */
+}
+
+/* Estilos para cabeçalhos de tabelas */
+th {
+  font-weight: bold;
+  background-color: #fedf01; /* Cor de fundo dos cabeçalhos de tabelas */
+}
+
+/* Estilos para células de tabelas */
+td {
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+}
+
+/* Estilos para citações */
+blockquote {
+  border-left: 4px solid #1966ce; /* Cor da borda da citação */
+  padding-left: 1rem;
+  margin-left: 0;
+}
+
+/* Estilos para espaçamento entre blocos */
+.section {
+  margin-bottom: 2rem;
+}
+
+/* Estilos para cores de fundo */
+.bg-yellow {
+  background-color: #fedf01; /* Fundo amarelo */
+}
+
+.bg-blue {
+  background-color: #1966ce; /* Fundo azul */
+  color: white; /* Texto branco para contraste */
+}
+
+  /* Estilo do calendário */
+  .calendar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .year {
+    font-size: 24px;
+    margin: 20px 0;
+  }
+  
+  .month {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .day {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #ccc;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+  }
+  
+  .marked {
+    background-color: #1966ce;
+    color: white;
+  }
+  
+
+  .calendar-year {
+    width: 100%;
+    border: 1px solid #d9d9d9;
+    border-radius: 4px;
+    overflow: hidden;
+  }
+  
+  .calendar-date-cell {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+  }
+  
+  .calendar-date-cell:hover {
+    background-color: #f0f0f0;
+  }
+  
