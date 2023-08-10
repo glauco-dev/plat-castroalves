@@ -95,8 +95,8 @@ const collections = [
   buildCollection<Model_Galeria>({
     path: "galerias",
     name: "Galerias",
+    // @ts-ignore
     properties: {
-      id: { dataType: "string", name: "ID" },
       data: {
         dataType: "map",
         properties: {
