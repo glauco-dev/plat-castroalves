@@ -20,7 +20,7 @@ export default () => {
     <Menu theme="dark" mode="horizontal">
       <Menu.Item key="home" icon={<HomeOutlined />}>
         <Link href="/">Início</Link>
-      </Menu.Item>
+      </Menu.Item>  
       <Menu.Item key="galerias" icon={<PictureOutlined />}>
         <Link href="/galerias">Galerias</Link>
       </Menu.Item>
