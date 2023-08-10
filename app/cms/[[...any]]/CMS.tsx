@@ -102,8 +102,29 @@ const collections = [
         properties: {
           titulo: { dataType: "string", name: "Título" },
           desc: { dataType: "string", name: "Descrição" },
-          capa: { dataType: "string", name: "Capa" },
-          imagens: { dataType: "array", name: "Imagens", of: { dataType: "string" } },
+          capa: { dataType: "string", name: "Capa", storage: {
+              storagePath: "images",
+              acceptedFiles: ["image/*"],
+              maxSize: 1024 * 1024,
+              metadata: {
+                  cacheControl: "max-age=1000000"
+              },
+              fileName: (context) => {
+                  return context.file.name;
+              },
+          }, },
+          imagens: { dataType: "array", name: "Imagens", of: { dataType: "string", storage: {
+            storagePath: "images",
+            acceptedFiles: ["image/*"],
+            maxSize: 1024 * 1024,
+            metadata: {
+                cacheControl: "max-age=1000000"
+            },
+            fileName: (context) => {
+                return context.file.name;
+            },
+            storeUrl: true
+        } } },
           link: { dataType: "string", name: "PermaLink" },
           tags: { dataType: "array", name: "Tags de Conteúdo", of: {dataType:"string", enumValues: Enum_ContentTags}}
         }
