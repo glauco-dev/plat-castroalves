@@ -8,6 +8,7 @@ import { db } from '../firebase_config';
 import 'firebase/firestore';
 import Link from 'next/link';
 import { collection, getDocs } from 'firebase/firestore';
+import Footer_ from '../components/Footer';
 
 
 const GalleryPage = () => {
@@ -31,7 +32,7 @@ const GalleryPage = () => {
   }, []);
 
   return (
-    <div id="galerias">
+    <><div id="galerias">
       <h1 style={{
         color: "rgb(11, 50, 155)",
         marginBottom: "2rem",
@@ -46,7 +47,7 @@ const GalleryPage = () => {
 
       <p>&Eacute; por isso que temos o prazer de apresentar as nossas Galerias, um espa&ccedil;o dedicado a revivermos esses momentos especiais atrav&eacute;s de imagens vibrantes e cheias de significado.</p>
 
-      <Row gutter={[16, 16]} className='mt-10'>
+      <Row gutter={[16, 16]} className='mt-10 mb-16'>
         {galleries.map(gallery => (
           <Col key={gallery.id} xs={24} sm={12} md={8} lg={6}>
             <Link href={`/g?id=${gallery.id}`} passHref>
@@ -60,7 +61,7 @@ const GalleryPage = () => {
           </Col>
         ))}
       </Row>
-    </div>
+    </div><Footer_></Footer_></>
   );
 };
 
