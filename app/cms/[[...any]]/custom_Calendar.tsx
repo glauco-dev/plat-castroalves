@@ -1,5 +1,5 @@
 import React from "react";
-import { CMSType, FieldDescription, FieldProps } from "firecms";
+import { CMSType, FieldDescription, FieldProps } from "../../../firecms";
 import CalendarYear  from '@/app/components/Calendar'
 import { T_Calendario_Evento } from "./models";
 
