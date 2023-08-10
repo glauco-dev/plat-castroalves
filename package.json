@@ -18,7 +18,6 @@
     "autoprefixer": "10.4.14",
     "encoding": "^0.1.13",
     "firebase": "^10.1.0",
-    "firecms": "^2.0.5",
     "framer-motion": "^10.15.1",
     "moment": "^2.29.4",
     "next": "13.4.13",

@@ -5,10 +5,9 @@ import React, { useCallback } from "react";
 import { User as FirebaseUser } from "firebase/auth";
 import {
   Authenticator,
-  EntityCollection,
   FirebaseCMSApp,
   buildCollection
-} from "../../../node_modules/firecms/dist";
+} from "../../../firecms";
 
 import CustomCalendar from './custom_Calendar'
 import "typeface-rubik";
