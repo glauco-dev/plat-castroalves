@@ -5,6 +5,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import styles from './Home.module.css';
 import PostagemCard from './components/PostagemCard';
+import Hero from './components/Hero';
 
 const { Header, Content, Footer } = Layout;
 
@@ -26,23 +27,14 @@ const HomePage = () => {
       
       
       <Content className={styles.content}>
-        <div className={styles.hero}>
-          <img
-            src="/hero/2.png"
-            alt="Educandário Castro Alves"
-            className={styles.heroImage}
-          />
-          <div className={styles.heroText}>
-            <h1>Bem-vindo ao Educandário Castro Alves</h1>
-          </div>
-        </div>
+        <Hero></Hero>
 
           <div className={styles.services}>
           <Card className={styles.serviceCard}>
           <h3>Matrícula</h3>
             <Divider />
             <p>Solicite sua matrícula para o próximo ano letivo.</p>
-            <Link href="/servicos/matricula">Saiba mais</Link>
+            <Link href="/matricula">Saiba mais</Link>
           </Card>
           <Card className={styles.serviceCard}>
           <h3>Solicitações</h3>

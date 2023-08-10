@@ -1,5 +1,5 @@
 /* Importar as fontes de texto */
-@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Iskra&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Iskra&display=swap");
 
 .content {
   padding: 2rem;
@@ -23,6 +23,24 @@
   transform: translate(-50%, -50%);
   text-align: center;
   color: #5485a6;
+  font-size: 16pt;
+  word-spacing: 19px;
+  width: 100%;
+}
+
+.contactAction {
+  position: absolute;
+  right: 1.9vw;
+  top: 33.5vh;
+}
+
+.contactAction img {
+  width: 23.1vw;
+  transition: all 150ms;
+  cursor: pointer;
+}
+.contactAction img:hover{
+  transform: scale(1.06);
 }
 
 .services {
@@ -57,7 +75,7 @@
 .blogTitle {
   font-size: 24px;
   margin-bottom: 1rem;
-  font-family: 'Iskra', sans-serif; /* Aplicar a fonte Iskra */
+  font-family: "Iskra", sans-serif; /* Aplicar a fonte Iskra */
 }
 
 .blogCard {
