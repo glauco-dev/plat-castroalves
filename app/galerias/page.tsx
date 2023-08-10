@@ -1,100 +1,54 @@
-"use client"
-import React from 'react';
-import { Layout, Row, Col, Card, Badge } from 'antd';
-import { Enum_ContentTags, Model_Galeria } from '../cms/[[...any]]/models';
+"use client";
 
-const { Content } = Layout;
+import React, { useState, useEffect } from 'react';
+import { Card, Row, Col } from 'antd';
+import { Enum_ContentTags, Model_Galeria } from '../cms/[[...any]]/models'; // Substitua pelo caminho correto
 
-const SchoolPage = () => {
-  const cardsData:Model_Galeria[] = [
-    {
-      id: "1",
-      data: {
-        titulo: 'Saída à Matinha',
-        desc: 'Passeio realizado em xx-xx-xxxx',
-        link: '/galerias?id=1',
-        capa: '/',
-        imagens: [],
-        tags:[ Enum_ContentTags.POSTAGEM ]// Coloque o caminho para a imagem
+import { db } from '../firebase_config';
+import 'firebase/firestore';
+import Link from 'next/link';
+import { collection, getDocs } from 'firebase/firestore';
+
+
+const GalleryPage = () => {
+  const [galleries, setGalleries] = useState<Model_Galeria[]>([]);
+
+  useEffect(() => {
+    const fetchGalleries = async () => {
+      try {
+        const response = await getDocs(collection( db, 'galerias'));
+        const fetchedGalleries = response.docs.map((doc) => ({
+          id: doc.id,
+          data: doc.data() as Model_Galeria['data']
+        }));
+        setGalleries(fetchedGalleries);
+      } catch (error) {
+        console.error('Error fetching galleries:', error);
       }
-    },
-    {
-      id: "2",
-      data: {
-        titulo: 'Saída à Matinha',
-        desc: 'Passeio realizado em xx-xx-xxxx',
-        link: '/galerias?id=1',
-        capa: '/',
-        imagens: [],
-        tags:[ Enum_ContentTags.POSTAGEM ]// Coloque o caminho para a imagem
-      }
-    },{
-      id: "3",
-      data: {
-        titulo: 'Saída à Matinha',
-        desc: 'Passeio realizado em xx-xx-xxxx',
-        link: '/galerias?id=1',
-        capa: '/',
-        imagens: [],
-        tags:[ Enum_ContentTags.POSTAGEM ]// Coloque o caminho para a imagem
-      }
-    },{
-      id: "4",
-      data: {
-        titulo: 'Saída à Matinha',
-        desc: 'Passeio realizado em xx-xx-xxxx',
-        link: '/galerias?id=1',
-        capa: '/',
-        imagens: [],
-        tags:[ Enum_ContentTags.POSTAGEM ]// Coloque o caminho para a imagem
-      }
-    },{
-      id: "5",
-      data: {
-        titulo: 'Saída à Matinha',
-        desc: 'Passeio realizado em xx-xx-xxxx',
-        link: '/galerias?id=1',
-        capa: '/',
-        imagens: [],
-        tags:[ Enum_ContentTags.POSTAGEM ]// Coloque o caminho para a imagem
-      }
-    },{
-      id: "6",
-      data: {
-        titulo: 'Saída à Matinha',
-        desc: 'Passeio realizado em xx-xx-xxxx',
-        link: '/galerias?id=1',
-        capa: '/',
-        imagens: [],
-        tags:[ Enum_ContentTags.POSTAGEM ]// Coloque o caminho para a imagem
-      }
-    },
-    // Adicione mais cards conforme necessário
-  ];
+    };
+
+    fetchGalleries();
+  }, []);
 
   return (
-    <Layout>
-      <Content style={{ padding: '2rem' }}>
-        <Row gutter={[16, 16]}>
-          {cardsData.map((card, index) => (
-            <Col key={index} xs={24} sm={12} md={8} lg={6}>
+    <div>
+      <h1>Galerias</h1>
+      <Row gutter={[16, 16]}>
+        {galleries.map(gallery => (
+          <Col key={gallery.id} xs={24} sm={12} md={8} lg={6}>
+            <Link href={`/g?id=${gallery.id}`} passHref>
               <Card
-                cover={<img alt={card.data.titulo} src={card.data.capa} />}
+                cover={<img alt={gallery.data.titulo} src={gallery.data.capa} />}
                 hoverable
-                onClick={() => window.location.href = card.data.link}
               >
-                <h3>{card.data.titulo}</h3>
-                <p>
-                  {card.data.tags.map(tag => <Badge text={tag}></Badge>)}
-                  {card.data.desc}
-                </p>
+                <Card.Meta title={gallery.data.titulo} description={gallery.data.desc} />
               </Card>
-            </Col>
-          ))}
-        </Row>
-      </Content>
-    </Layout>
+            </Link>
+          </Col>
+        ))}
+      </Row>
+    </div>
   );
 };
 
-export default SchoolPage;
+export default GalleryPage;
