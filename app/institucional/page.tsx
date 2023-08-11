@@ -2,6 +2,7 @@
 
 import React from 'react';
 import Footer from '../components/Footer'; // Importe o componente de rodapé
+import Parceiros from '../components/Parceiros';
 import styles from './Institucional.module.css'; // Importe os estilos modulares
 import Link from 'next/link';
 
@@ -13,8 +14,9 @@ const InstitucionalPage: React.FC = () => {
         <div className={`${styles['section-principal']}`}>
             <div className={styles.section_inner}>
                 <div className={styles.vectorLines}>
-                    <div className={`${styles.vectorLine} ${styles.blue}`} />
-                    <div className={`${styles.vectorLine} ${styles.dark}`} />
+                    <div className={`${styles.vectorLine} ${styles.blue}`}>
+                        <Parceiros partnerBrands={[]}/>
+                    </div>
                 </div>
                 <div className={styles.sectionHeader}>
                     <h1 className={styles.sectionTitle} style={{marginTop: "-30rem", marginBottom:'4rem'}}>Educandário Castro Alves: Transformando Vidas Através da Educação</h1>

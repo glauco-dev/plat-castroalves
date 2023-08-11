@@ -106,7 +106,6 @@ const CalendarioEventos = ({initialValues=[{}] as {[key:string]:T_Calendario_Eve
 
   return (
     <div style={{ padding: '2rem' }}>
-      <h1>Calendário de Eventos</h1>
       <Calendar
         cellRender={dateCellRender}
         onSelect={handleDateClick}

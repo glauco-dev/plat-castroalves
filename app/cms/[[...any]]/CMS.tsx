@@ -12,7 +12,7 @@ import {
 import CustomCalendar from './custom_Calendar'
 import "typeface-rubik";
 import "@fontsource/ibm-plex-mono";
-import { Enum_ContentTags, Enum_Horarios, Enum_Nv_usuarios, Enum_Turma, Model_Aluno, Model_Anexo, Model_ArtAdministrativo, Model_Aula, Model_Boletim_Aluno, Model_Boletim_Geral, Model_CalendarioEvento, Model_Chat, Model_Comentario, Model_Galeria, Model_Materiais, Model_Matricula, Model_Mensagem, Model_Nota, Model_Pagamento, Model_Pai, Model_Professor, Model_Publicacao, Model_Solicitacao, Model_Turma, Model_Usuario } from "./models";
+import { Enum_ContactType, Enum_ContentTags, Enum_Horarios, Enum_Nv_usuarios, Enum_Turma, Model_Aluno, Model_Anexo, Model_ArtAdministrativo, Model_Aula, Model_Boletim_Aluno, Model_Boletim_Geral, Model_CalendarioEvento, Model_Chat, Model_Comentario, Model_Galeria, Model_Materiais, Model_Matricula, Model_Mensagem, Model_Nota, Model_Pagamento, Model_Pai, Model_PartnerBrand, Model_Professor, Model_Publicacao, Model_Solicitacao, Model_Turma, Model_Usuario } from "./models";
 
 const firebaseConfig = {
 
@@ -88,10 +88,58 @@ const collections = [
       destaque: { dataType: "boolean", name: "Destaque" },
       texto: { dataType: "string", name: "Texto" },
       capa: { dataType: "string", name: "Capa" },
-      galeria: { dataType: "array", name: "Galeria", of: { dataType: "string" } },
+      galeria: { dataType: "array", name: "Imagens", of: { dataType: "string", storage: {
+            storagePath: "images",
+            acceptedFiles: ["image/*"],
+            maxSize: 1024 * 1024,
+            metadata: {
+                cacheControl: "max-age=1000000"
+            },
+            fileName: (context) => {
+                return context.file.name;
+            },
+            storeUrl: true
+        } } },
       comentarios: { dataType: "array", name: "Comentários", of: { dataType: "string" } },
     }
   }),
+
+  buildCollection<Model_PartnerBrand>({
+    name: 'Marca Parceira', // Nome da coleção no Firestore
+    path: 'marcas_parceiras', // Caminho da coleção no Firestore
+    properties: {
+      name: { dataType: 'string', name: 'Nome'},
+      logo: {
+        dataType: "string", name: "Logo" , storage: {
+              storagePath: "images",
+              acceptedFiles: ["image/*"],
+              maxSize: 1024 * 1024,
+              metadata: {
+                  cacheControl: "max-age=1000000"
+              },
+              fileName: (context) => {
+                  return context.file.name;
+              },
+              storeUrl: true
+          },
+      },
+      description: { dataType: 'string', name: 'Descrição'},
+      cliente: { dataType: 'map', name: 'Cliente', }, // Supondo que 'clientes' seja o nome da coleção dos clientes
+      location: { dataType: 'map', name: 'Localização'},
+      contact_info: {
+        dataType: 'array',
+        name: 'Informações de Contato',
+        of:{
+          dataType:"map",
+          properties: {
+            dataType: { dataType: 'string', name: 'Tipo', enumValues: Enum_ContactType },
+            value: { dataType: 'string', name: 'Valor' },
+          },
+        }
+      },
+    },
+  }),
+
   buildCollection<Model_Galeria>({
     path: "galerias",
     name: "Galerias",

@@ -57,7 +57,7 @@ const Footer_: React.FC = () => {
         <span  style={{fontSize:'80%', marginTop:'1rem', textAlign:"center", color:"#2d2d2d"}}>
           Educandário Castro Alves, todos os direitos reservados @2023
           <div>
-          &copy; Ícaro Glauco de Oliveira
+          &copy; github/glauco-dev
           </div>
           </span>
         

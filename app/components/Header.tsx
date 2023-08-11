@@ -27,11 +27,11 @@ export default () => {
       {/* <Menu.Item key="portal" icon={<AppstoreAddOutlined />}>
         <Link href="/portal">Portal</Link>
       </Menu.Item> */}
-      <Menu.Item key="portal" icon={<EditOutlined />}>
-        <Link href="/portal">Matrícula</Link>
+      <Menu.Item key="matricula" icon={<EditOutlined />}>
+        <Link href="/matricula">Matrícula</Link>
       </Menu.Item>
-      <Menu.Item key="portal" icon={<CalendarOutlined  />}>
-        <Link href="/portal">Calendário</Link>
+      <Menu.Item key="calendario" icon={<CalendarOutlined  />}>
+        <Link href="/calendario">Calendário</Link>
       </Menu.Item>
     </Menu>
   </Header>

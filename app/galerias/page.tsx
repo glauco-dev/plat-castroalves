@@ -49,7 +49,7 @@ const GalleryPage = () => {
 
       <Row gutter={[16, 16]} className='mt-10 mb-16'>
         {galleries.map(gallery => (
-          <Col key={gallery.id} xs={24} sm={12} md={8} lg={6}>
+          <Col key={gallery.id} xs={28} sm={14} md={10} lg={8}>
             <Link href={`/g?id=${gallery.id}`} passHref>
               <Card
                 cover={<img alt={gallery.data.titulo} src={gallery.data.capa} />}

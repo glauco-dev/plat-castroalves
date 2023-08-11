@@ -48,6 +48,32 @@ export interface Model_Pai extends Model_Usuario{
     acesso: Enum_Nv_usuarios.PAI
     filho: Model_Aluno
 }
+
+export enum Enum_ContactType {
+    PHONE = 'Telefone',
+    EMAIL = 'E-mail',
+    SOCIAL_MEDIA = 'Mídia Social',
+    OTHER = 'Outro',
+  }
+  
+  export interface Model_ContactInfo {
+    type: Enum_ContactType;
+    value: string;
+  }
+  
+  export interface Model_PartnerBrand {
+    id?: string;
+    name: string;
+    logo: string;
+    description: string;
+    cliente: Model_Cliente;
+    location: {
+      lat: number;
+      lng: number;
+    };
+    contact_info: Model_ContactInfo[];
+  }
+
 export interface Model_Professor extends Model_Usuario{
     acesso: Enum_Nv_usuarios.PROFESSOR
     turmas: Enum_Turma[]
