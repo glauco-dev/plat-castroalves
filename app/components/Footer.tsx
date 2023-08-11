@@ -2,6 +2,7 @@
 
 import React from 'react';
 import { Footer } from 'antd/es/layout/layout';
+import Link from 'next/link';
 
 const Footer_: React.FC = () => {
   const styles = {
@@ -41,18 +42,18 @@ const Footer_: React.FC = () => {
       <Footer style={styles.footer}>
       <div  className='footer_final'style={{...styles.footerContent}}>
         <div  style={styles.footerLinks}>
-          <a href="/" target='_blank' style={styles.footerLink}>
+          <Link href="/" target='_blank' style={styles.footerLink}>
             Início
-          </a>
-          <a href="/institucional" target='_blank' style={styles.footerLink}>
+          </Link>
+          <Link href="/institucional" target='_blank' style={styles.footerLink}>
             Sobre Nós
-          </a>
-          <a href="/galerias" target='_blank' style={styles.footerLink}>
+          </Link>
+          <Link href="/galerias" target='_blank' style={styles.footerLink}>
             Galerias
-          </a>
-          <a href="/portal" target='_blank' style={styles.footerLink}>
+          </Link>
+          <Link href="/portal" target='_blank' style={styles.footerLink}>
             Portal
-          </a>
+          </Link>
         </div>
         <span  style={{fontSize:'80%', marginTop:'1rem', textAlign:"center", color:"#2d2d2d"}}>
           Educandário Castro Alves, todos os direitos reservados @2023

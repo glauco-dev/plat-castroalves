@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from 'react';
-import { Card, Row, Col } from 'antd';
+import { Card, Row, Col, Badge } from 'antd';
 import { Enum_ContentTags, Model_Galeria } from '../cms/[[...any]]/models'; // Substitua pelo caminho correto
 
 import { db } from '../firebase_config';
@@ -54,8 +54,9 @@ const GalleryPage = () => {
               <Card
                 cover={<img alt={gallery.data.titulo} src={gallery.data.capa} />}
                 hoverable
+                bordered={true}
               >
-                <Card.Meta title={gallery.data.titulo} description={gallery.data.desc} />
+                <Card.Meta title={gallery.data.titulo} description={gallery.data.tags.map(t => <Badge offset={["2px", "5px"]} dot>{t}</Badge>)} />
               </Card>
             </Link>
           </Col>
