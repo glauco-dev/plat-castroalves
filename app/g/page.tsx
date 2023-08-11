@@ -5,7 +5,7 @@ import {  Typography, Row, Col, Modal } from 'antd';
 import { useSearchParams } from 'next/navigation';
 import { Model_Galeria } from '../cms/[[...any]]/models';
 import { collection, doc as d, getDoc } from 'firebase/firestore';
-import Breadnav from '../components/Breadnav';
+import Breadnav from '../components/breadnav';
 import Footer_ from '../components/Footer';
 
 const { Text, Title } = Typography;
