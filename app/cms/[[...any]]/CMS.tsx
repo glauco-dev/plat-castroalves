@@ -340,7 +340,7 @@ export default function CMS() {
   }, []);
 
   return <FirebaseCMSApp
-    name={"Castro alves"}
+    name={"Educandário Castro Alves"}
     basePath={"/cms"}
     authentication={myAuthenticator}
     collections={collections}

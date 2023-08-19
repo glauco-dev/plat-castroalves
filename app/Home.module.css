@@ -29,6 +29,8 @@
   color: #1966ce;
   font-weight: lighter;
   font-size: 32pt;
+  height: 5rem;
+  width: max-content;
 }
 
 .contactAction {
